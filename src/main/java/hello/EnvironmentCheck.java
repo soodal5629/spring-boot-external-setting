@@ -1,10 +1,10 @@
 package hello;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 
 @Slf4j
 @Component
@@ -19,9 +19,9 @@ public class EnvironmentCheck {
     @PostConstruct
     public void init() {
         String url = env.getProperty("url");
-        String username = env.getProperty("username"); // java 시스템 속성
-        String password = env.getProperty("password"); // java 시스템 속성
-        String user = env.getProperty("user"); // 커맨드 라인 옵션 인수
+        String username = env.getProperty("username");
+        String password = env.getProperty("password");
+        String user = env.getProperty("user");
         String javaHome = env.getProperty("JAVA_HOME"); // OS 환경변수
         log.info("env url = {}", url);
         log.info("env username = {}", username);
